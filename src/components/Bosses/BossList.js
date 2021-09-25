@@ -5,7 +5,7 @@ import "./Bosses.css"
 import { DungeonContext } from "../Dungeons/DungeonProvider"
 
 export const BossList = ({ history }) => {
-    const { bosses, getBosses, searchTerms } = useContext(BossContext)
+    const { bosses, getBosses } = useContext(BossContext)
     const { dungeons, getDungeons } = useContext(DungeonContext)
     const [filteredBosses, setFiltered] = useState([])
     const [selectedDungeon, selectDungeon] = useState(0)

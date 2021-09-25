@@ -8,6 +8,9 @@ import { DungeonProvider } from "./Dungeons/DungeonProvider"
 import { BossProvider } from "./Bosses/BossProvider"
 import { BossList } from "./Bosses/BossList"
 import { BossDetail } from "./Bosses/BossDetail"
+import { EventProvider } from "./Events/EventProvider"
+import { EventList } from "./Events/EventList"
+import { EventDetail } from "./Events/EventDetail"
 
 
 
@@ -34,6 +37,14 @@ export const ApplicationViews = (props) => {
                     </Route>
                 </BossProvider>
             </DungeonProvider>
+            <EventProvider>
+                <Route exact path="/events">
+                    <EventList />
+                </Route>
+                <Route exact path="/events/:eventId(\d+)">
+                    <EventDetail />
+                </Route>
+            </EventProvider>
 
 
 

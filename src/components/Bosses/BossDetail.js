@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, useRef } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import { BossContext } from "./BossProvider"
 import "./Bosses.css"
 import { useParams, useHistory } from "react-router"

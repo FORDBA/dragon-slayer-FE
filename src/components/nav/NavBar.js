@@ -19,7 +19,7 @@ export const NavBar = (props) => {
   const userId = parseInt(sessionStorage.getItem("guild_user"))
   return (
     <Navbar expand="md" style={{ padding: '1em' }}>
-      <Navbar.Brand as={Link} to="/">
+      <Navbar.Brand >
         <img className="navbar__logo" src={Logo} alt="Tax Return Manager" />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
