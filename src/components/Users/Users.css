@@ -1,0 +1,16 @@
+.members {
+    display: flex;
+    justify-content: space-around;
+   }
+
+.userSearchBox {
+    padding-bottom: 3em;
+    padding-left: 10px
+}
+
+.memberDiv {
+    padding: 1em;
+}
+.memberHeader{
+   text-align: center;
+}
