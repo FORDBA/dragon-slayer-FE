@@ -14,7 +14,7 @@ import { RaceProvider } from "./Races/RaceProvider"
 export const Guild = () => (
     <>
         <Route render={() => {
-            if (localStorage.getItem("guild_user")) {
+            if (sessionStorage.getItem("guild_user")) {
                 return (
                     <>
                         <NavBar />
