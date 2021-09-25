@@ -15,6 +15,7 @@ export const NavBar = (props) => {
     sessionStorage.removeItem("guild_user")
     history.push("/login")
   }
+  const userId = parseInt(localStorage.getItem("guild_user"))
   return (
     <Navbar expand="md">
       <Navbar.Brand as={Link} to="/">

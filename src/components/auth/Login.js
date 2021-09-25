@@ -30,7 +30,7 @@ export const Login = () => {
             .then(exists => {
                 if (exists) {
                     sessionStorage.setItem("guild_user", exists.id)
-                    history.push("/")
+                    history.push(`/profile/${exists.id}`)
                 } else {
                     setExistDialog(true)
                 }

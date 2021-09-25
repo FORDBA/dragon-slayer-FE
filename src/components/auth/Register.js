@@ -5,6 +5,7 @@ import { RoleContext } from "../Roles/RoleProvider"
 import { RaceContext } from "../Races/RaceProvider"
 import { ClassContext } from "../Classes/ClassProvider"
 import "./Login.css"
+import { ProfessionContext } from "../Professions/ProfessionProvider";
 
 export const Register = () => {
 
@@ -15,6 +16,8 @@ export const Register = () => {
         role: 0,
         class: 0,
         race: 0,
+        profession1: 0,
+        profession2: 0,
         userSummary: ""
 
 
@@ -26,6 +29,7 @@ export const Register = () => {
     const { roles, getRoles } = useContext(RoleContext)
     const { races, getRaces } = useContext(RaceContext)
     const { classes, getClasses } = useContext(ClassContext)
+    const { professions, getProfessions } = useContext(ProfessionContext)
     const history = useHistory()
 
 
@@ -35,6 +39,7 @@ export const Register = () => {
         getRoles()
         getRaces()
         getClasses()
+        getProfessions()
 
 
     }, [])
@@ -97,6 +102,8 @@ export const Register = () => {
                                 roleId: parseInt(registerUser.role),
                                 classId: parseInt(registerUser.class),
                                 raceId: parseInt(registerUser.race),
+                                profession1Id: parseInt(registerUser.profession1),
+                                profession2Id: parseInt(registerUser.profession2),
                                 photo: image,
                                 summary: registerUser.userSummary
                             })
@@ -105,8 +112,8 @@ export const Register = () => {
                             .then(createdUser => {
                                 if (createdUser.hasOwnProperty("id")) {
                                     // The user id is saved under the key nutshell_user in session Storage. Change below if needed!
-                                    sessionStorage.setItem("itb_user", createdUser.id)
-                                    history.push("/")
+                                    sessionStorage.setItem("guild_user", createdUser.id)
+                                    history.push(`/profile/${createdUser.id}`)
                                 }
                             })
                     }
@@ -185,12 +192,30 @@ export const Register = () => {
                         </option>
                     ))}
                 </select>
+                <label htmlFor="prof1">1st Profession: </label>
+                <select defaultValue="" name="prof1" id="profession1" onChange={handleInputChange} className="form-control" required >
+                    <option value="0">Select a Profession</option>
+                    {professions.map(e => (
+                        <option key={e.id} value={e.id}>
+                            {e.name}
+                        </option>
+                    ))}
+                </select>
+                <label htmlFor="prof2">2nd Profession: </label>
+                <select defaultValue="" name="prof2" id="profession2" onChange={handleInputChange} className="form-control" required >
+                    <option value="0">Select a Profession</option>
+                    {professions.map(e => (
+                        <option key={e.id} value={e.id}>
+                            {e.name}
+                        </option>
+                    ))}
+                </select>
                 <label htmlFor="userSummary"> Summary </label>
                 <textarea id="userSummary" onChange={handleInputChange} type="userSummary"
                     name="userSummary"
                     className="form-control"
                     required />
-                <button className="submitButton" type="submit"> Sign in </button>
+                <button className="submitButton" type="submit"> Register </button>
             </form>
         </main>
     )

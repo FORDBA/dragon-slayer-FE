@@ -7,7 +7,7 @@ export const UserProvider = (props) => {
     const [searchTerms, setTerms, setFilter] = useState("")
 
     const getUsers = () => {
-        return fetch("http://localhost:8088/users?_expand=rank&_expand=class&_expand=role&_expand=race&_embed=userProfessions")
+        return fetch("http://localhost:8088/users?_expand=rank&_expand=class&_expand=role&_expand=race")
             .then(res => res.json())
             .then(setUsers)
     }
