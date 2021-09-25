@@ -32,7 +32,7 @@ export const BossDetail = (props) => {
 
                 <h1 className="boss__name">{boss.name}</h1>
 
-                <div><img class="boss__image" src={boss.photo} alt="" /></div>
+                <div><img class="boss__image" src={boss.photo} /></div>
                 <div className="boss__summary">{boss.summary}</div>
                 <div className="boss__dungeon">Dungeon: {boss.dungeon?.name}</div>
                 <div className="boss__status">Status: {boss.status}</div>
