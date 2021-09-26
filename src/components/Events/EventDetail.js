@@ -13,6 +13,8 @@ export const EventDetail = (props) => {
     const history = useHistory()
     const [event, setEvent] = useState({ user: {}, dungeon: {} })
     const { eventId } = useParams()
+    const isOwner = parseInt(sessionStorage.getItem('guild_user')) === event.userId
+
 
     useEffect(() => {
 
@@ -45,6 +47,9 @@ export const EventDetail = (props) => {
 
             <div className="event__date">{event.date}</div>
             <div className="event__creator">{event.user.name}</div>
+            {isOwner && <button onClick={() => {
+                history.push(`/events/edit/${event.id}`)
+            }}>Edit</button>}
         </main>
     )
 }

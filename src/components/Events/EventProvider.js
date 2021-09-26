@@ -10,6 +10,12 @@ export const EventProvider = (props) => {
     const getEvents = () => {
         return fetch("http://localhost:8088/events?_expand=user&_expand=dungeon")
             .then(res => res.json())
+            .then(unsortedEvnts =>
+                unsortedEvnts.sort(function (a, b) {
+                    // Turn your strings into dates, and then subtract them
+                    // to get a value that is either negative, positive, or zero.
+                    return new Date(b.date) - new Date(a.date);
+                }))
             .then(setEvents)
     }
     const getEventById = (id) => {

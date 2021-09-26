@@ -17,6 +17,7 @@ import { RoleProvider } from "./Roles/RoleProvider"
 import { ClassProvider } from "./Classes/ClassProvider"
 import { RaceProvider } from "./Races/RaceProvider"
 import { Register } from "./auth/Register"
+import { EventForm } from "./Events/EventForm"
 
 
 
@@ -50,14 +51,22 @@ export const ApplicationViews = (props) => {
                     </Route>
                 </BossProvider>
             </DungeonProvider>
-            <EventProvider>
-                <Route exact path="/events">
-                    <EventList />
-                </Route>
-                <Route exact path="/events/:eventId(\d+)">
-                    <EventDetail />
-                </Route>
-            </EventProvider>
+            <DungeonProvider>
+                <EventProvider>
+                    <Route exact path="/events">
+                        <EventList />
+                    </Route>
+                    <Route exact path="/events/:eventId(\d+)">
+                        <EventDetail />
+                    </Route>
+                    <Route exact path="/events/edit/:eventId(\d+)">
+                        <EventForm />
+                    </Route>
+                    <Route exact path="/events/create">
+                        <EventForm />
+                    </Route>
+                </EventProvider>
+            </DungeonProvider>
             <RoleProvider>
                 <ClassProvider>
                     <RaceProvider>
