@@ -4,9 +4,11 @@ import { Link, useHistory } from "react-router-dom"
 import "./Bosses.css"
 import { DungeonContext } from "../Dungeons/DungeonProvider"
 
+
 export const BossList = () => {
     const { bosses, getBosses } = useContext(BossContext)
     const { dungeons, getDungeons } = useContext(DungeonContext)
+
     const [filteredBosses, setFiltered] = useState([])
     const [selectedDungeon, selectDungeon] = useState(0)
     const history = useHistory()
@@ -14,6 +16,8 @@ export const BossList = () => {
     useEffect(() => {
         getDungeons()
         getBosses()
+
+
     }, [])
     useEffect(() => {
 

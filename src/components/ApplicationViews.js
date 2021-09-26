@@ -18,6 +18,8 @@ import { ClassProvider } from "./Classes/ClassProvider"
 import { RaceProvider } from "./Races/RaceProvider"
 import { Register } from "./auth/Register"
 import { EventForm } from "./Events/EventForm"
+import { CommentProvider } from "./BossComments/BossCommentProvider"
+import { CommentForm } from "./BossComments/BossCommentForm"
 
 
 
@@ -35,22 +37,27 @@ export const ApplicationViews = (props) => {
                     </Route>
                 </ProfessionProvider>
             </UserProvider>
-            <DungeonProvider>
-                <BossProvider>
-                    <Route exact path="/bosses">
-                        <BossList />
-                    </Route>
-                    <Route exact path="/bosses/:bossId(\d+)">
-                        <BossDetail />
-                    </Route>
-                    <Route exact path="/bosses/create">
-                        <BossForm />
-                    </Route>
-                    <Route exact path="/bosses/edit/:bossId(\d+)">
-                        <BossForm />
-                    </Route>
-                </BossProvider>
-            </DungeonProvider>
+            <CommentProvider>
+                <DungeonProvider>
+                    <BossProvider>
+                        <Route exact path="/bosses">
+                            <BossList />
+                        </Route>
+                        <Route exact path="/bosses/:bossId(\d+)">
+                            <BossDetail />
+                        </Route>
+                        <Route exact path="/bosses/create">
+                            <BossForm />
+                        </Route>
+                        <Route exact path="/bosses/edit/:bossId(\d+)">
+                            <BossForm />
+                        </Route>
+                        <Route exact path="/bossComments/edit/:commentId(\d+)">
+                            <CommentForm />
+                        </Route>
+                    </BossProvider>
+                </DungeonProvider>
+            </CommentProvider>
             <DungeonProvider>
                 <EventProvider>
                     <Route exact path="/events">
