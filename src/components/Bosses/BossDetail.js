@@ -41,7 +41,7 @@ export const BossDetail = (props) => {
 
                 <button onClick={() => deleteBoss(boss.id).then(() => history.push("/bosses"))} >Delete Boss</button>
                 <button onClick={() => {
-                    props.history.push(`/bosses/edit/${boss.id}`)
+                    history.push(`/bosses/edit/${boss.id}`)
                 }}>Edit</button>
 
 

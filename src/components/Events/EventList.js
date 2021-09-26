@@ -11,7 +11,7 @@ export const EventList = (props) => {
 
     useEffect(() => {
         getEvents()
-            .then(events.sort((a, b) => new Date(a.date) > new Date(b.date) ? 1 : -1))
+            .then(events.sort((a, b) => (a.date > b.date) ? 1 : -1))
     }, [])
 
 

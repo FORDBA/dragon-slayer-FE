@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react"
 import { UserContext } from "./UserProvider"
-import { Link } from "react-router-dom"
 import { Card } from "react-bootstrap"
 import "./Users.css"
 
