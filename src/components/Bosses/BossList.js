@@ -1,14 +1,15 @@
 import React, { useState, useContext, useEffect } from "react"
 import { BossContext } from "./BossProvider"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import "./Bosses.css"
 import { DungeonContext } from "../Dungeons/DungeonProvider"
 
-export const BossList = ({ history }) => {
+export const BossList = () => {
     const { bosses, getBosses } = useContext(BossContext)
     const { dungeons, getDungeons } = useContext(DungeonContext)
     const [filteredBosses, setFiltered] = useState([])
     const [selectedDungeon, selectDungeon] = useState(0)
+    const history = useHistory()
 
     useEffect(() => {
         getDungeons()
@@ -48,8 +49,8 @@ export const BossList = ({ history }) => {
 
 
             <article className="bosses__container">
-                <button onClick={() => history.push("/bosses/createboss")}>
-                    Add Bosses
+                <button onClick={() => history.push("/bosses/create")}>
+                    Add Boss
                 </button>
                 <div className="bosses" >
                     {

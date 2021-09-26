@@ -11,6 +11,13 @@ import { BossDetail } from "./Bosses/BossDetail"
 import { EventProvider } from "./Events/EventProvider"
 import { EventList } from "./Events/EventList"
 import { EventDetail } from "./Events/EventDetail"
+import { BossForm } from "./Bosses/BossForm"
+import { RankProvider } from "./Ranks/RankProvider"
+import { RoleProvider } from "./Roles/RoleProvider"
+import { ClassProvider } from "./Classes/ClassProvider"
+import { RaceProvider } from "./Races/RaceProvider"
+import { Register } from "./auth/Register"
+
 
 
 
@@ -35,6 +42,12 @@ export const ApplicationViews = (props) => {
                     <Route exact path="/bosses/:bossId(\d+)">
                         <BossDetail />
                     </Route>
+                    <Route exact path="/bosses/create">
+                        <BossForm />
+                    </Route>
+                    <Route exact path="/bosses/edit/:bossId(\d+)">
+                        <BossForm />
+                    </Route>
                 </BossProvider>
             </DungeonProvider>
             <EventProvider>
@@ -45,6 +58,21 @@ export const ApplicationViews = (props) => {
                     <EventDetail />
                 </Route>
             </EventProvider>
+            <RoleProvider>
+                <ClassProvider>
+                    <RaceProvider>
+                        <RankProvider>
+                            <ProfessionProvider>
+                                <UserProvider>
+                                    <Route path="/profile/edit/:userId(\d+)">
+                                        <Register />
+                                    </Route>
+                                </UserProvider>
+                            </ProfessionProvider>
+                        </RankProvider>
+                    </RaceProvider>
+                </ClassProvider>
+            </RoleProvider>
 
 
 

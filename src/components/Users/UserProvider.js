@@ -25,7 +25,7 @@ export const UserProvider = (props) => {
             },
             body: JSON.stringify(user)
         })
-            .then(getUsers)
+            .then(res => res.json())
     }
 
     const updateUser = user => {

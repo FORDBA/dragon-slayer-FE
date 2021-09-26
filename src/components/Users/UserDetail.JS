@@ -9,6 +9,7 @@ export const UserDetail = (props) => {
     const [user, setUser] = useState({ rank: {}, role: {}, class: {}, race: {} })
     const { userId } = useParams()
     const history = useHistory()
+    const loggedInUser = sessionStorage.getItem('guild_user') === userId
 
 
     useEffect(() => {
@@ -17,7 +18,7 @@ export const UserDetail = (props) => {
             .then(setUser)
 
 
-    }, [])
+    }, [userId])
 
     user.profession1 = professions.find(p => p.id === user.profession1Id)
     user.profession2 = professions.find(p => p.id === user.profession2Id)
@@ -30,7 +31,7 @@ export const UserDetail = (props) => {
 
 
 
-                    <img className="profile__image" src={user.photo} />
+                    <img className="profile__image" src={user.photo} alt="" />
                     <h1 className="profile__name">{user.name}</h1>
                     <div className="listDetails">
                         <div className="profile__rank">{user.rank.name}</div>
@@ -39,9 +40,9 @@ export const UserDetail = (props) => {
                         <div className="profile__Professions">{user.profession1?.name} and {user.profession2?.name}</div>
                     </div>
                     <div className="profile__Summary">{user.summary}</div>
-                    <button onClick={() => {
+                    {loggedInUser && <button onClick={() => {
                         history.push(`/profile/edit/${user.id}`)
-                    }}>Edit</button>
+                    }}>Edit</button>}
 
 
 
