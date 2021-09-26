@@ -2,6 +2,9 @@ import React, { useState, useContext, useEffect } from "react"
 import { BossContext } from "./BossProvider"
 import "./Bosses.css"
 import { useParams, useHistory } from "react-router"
+import { CommentForm } from "../BossComments/BossCommentForm"
+import { CommentList } from "../BossComments/BossCommentList"
+import { CommentContext } from "../BossComments/BossCommentProvider"
 
 
 
@@ -11,6 +14,7 @@ export const BossDetail = (props) => {
     const { deleteBoss, getBossById } = useContext(BossContext)
     const { bossId } = useParams()
     const history = useHistory()
+    const { getCommentsByBossId } = useContext(CommentContext);
 
     const [boss, setBoss] = useState({ dungeon: {} })
 
@@ -18,6 +22,7 @@ export const BossDetail = (props) => {
 
         getBossById(bossId)
             .then(setBoss)
+            .then(() => getCommentsByBossId(bossId))
     }, [])
 
 
@@ -43,6 +48,10 @@ export const BossDetail = (props) => {
                 <button onClick={() => {
                     history.push(`/bosses/edit/${boss.id}`)
                 }}>Edit</button>
+
+
+                <CommentForm bossId={boss.id} />
+                <CommentList bossId={boss.id} />
 
 
             </div>
