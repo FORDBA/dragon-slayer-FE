@@ -1,0 +1,7 @@
+.mx-1{
+    background-color: #0d6efd;
+    }
+.events{
+        display: flex;
+        justify-content: flex-start;
+    }

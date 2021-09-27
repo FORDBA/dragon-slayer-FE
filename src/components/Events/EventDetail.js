@@ -1,5 +1,7 @@
 import React, { useState, useContext, useEffect } from "react"
 import { useHistory, useParams } from "react-router"
+import { AttendingForm } from "../AttendingEvents/AttendingEventForm"
+import { AttendingEventsList } from "../AttendingEvents/AttendingEventsList"
 import { EventContext } from "./EventProvider"
 import "./Events.css"
 
@@ -50,6 +52,9 @@ export const EventDetail = (props) => {
             {isOwner && <button onClick={() => {
                 history.push(`/events/edit/${event.id}`)
             }}>Edit</button>}
+
+            <AttendingForm eventId={event.id} />
+            <AttendingEventsList eventId={event.id} />
         </main>
     )
 }
