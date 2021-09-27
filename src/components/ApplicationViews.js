@@ -20,6 +20,7 @@ import { Register } from "./auth/Register"
 import { EventForm } from "./Events/EventForm"
 import { CommentProvider } from "./BossComments/BossCommentProvider"
 import { CommentForm } from "./BossComments/BossCommentForm"
+import { AttendingEventProvider } from "./AttendingEvents/AttendingEventsProvider"
 
 
 
@@ -60,18 +61,20 @@ export const ApplicationViews = (props) => {
             </CommentProvider>
             <DungeonProvider>
                 <EventProvider>
-                    <Route exact path="/events">
-                        <EventList />
-                    </Route>
-                    <Route exact path="/events/:eventId(\d+)">
-                        <EventDetail />
-                    </Route>
-                    <Route exact path="/events/edit/:eventId(\d+)">
-                        <EventForm />
-                    </Route>
-                    <Route exact path="/events/create">
-                        <EventForm />
-                    </Route>
+                    <AttendingEventProvider>
+                        <Route exact path="/events">
+                            <EventList />
+                        </Route>
+                        <Route exact path="/events/:eventId(\d+)">
+                            <EventDetail />
+                        </Route>
+                        <Route exact path="/events/edit/:eventId(\d+)">
+                            <EventForm />
+                        </Route>
+                        <Route exact path="/events/create">
+                            <EventForm />
+                        </Route>
+                    </AttendingEventProvider>
                 </EventProvider>
             </DungeonProvider>
             <RoleProvider>
