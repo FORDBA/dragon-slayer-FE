@@ -1,51 +1,53 @@
+.BossContainer{
+  align-content: center;
+}
 .bosses {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
   }
+
+.boss__Bottom{
+    align-content: center;
+    padding: 5em;
+}
   
 .boss {
       flex-basis: 28%;
       margin: 1em;
       padding: 1em;
-      background-color: #A4724A;
-      border: #7C6B64  groove 2px;
+      
   }
   .bossDiv {
-    background-color: #89300F;
-    margin: 2em;
-    padding: 2em;
+    padding: 1em;
+    text-align: center;
     
   }
   .boss__image {
     width: 400px;
-    border: groove #7C6B64 2px;
+    
     
 
   }
-  .BossContainer {
-    display: flex;
-    justify-content: center;
-    background-color: #89300F;
-  }
-  .boss__summary {
-    flex-basis: 28%;
-    margin: 1em;
-    padding: 1em;
-    background-color: #A4724A;
-    border: groove 2px #7C6B64 
-  }
-  .comment {
-    
-      flex-basis: 28%;
-      margin: 1em;
-      padding: 1em;
-      background-color: #A4724A;
-      border: #7C6B64  groove 2px;
-      
-  }
+  
+  .boss__details {
+    align-content: start;
+    padding-left: 5em;
+}
+  .commentForm {
+    align-content: start;
+    padding-left: 5em;
+    padding-right: 5em;
 
-  .comment__user {
+  }
+  .commentContainer {
+    align-content: start;
+    padding-left: 5em;
+    padding-right: 5em;
+    padding-top: 2em;
+    padding-bottom: 5em;
+
+  }
+  .detailHeader {
     font-weight: bold;
-    
-  }
+}

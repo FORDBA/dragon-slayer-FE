@@ -5,3 +5,7 @@
         display: flex;
         justify-content: flex-start;
     }
+.attendForm {
+    padding-top: 2em;
+    padding-bottom: 2em;
+}

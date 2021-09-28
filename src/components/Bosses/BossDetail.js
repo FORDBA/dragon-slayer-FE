@@ -5,6 +5,7 @@ import { useParams, useHistory } from "react-router"
 import { CommentForm } from "../BossComments/BossCommentForm"
 import { CommentList } from "../BossComments/BossCommentList"
 import { CommentContext } from "../BossComments/BossCommentProvider"
+import { Button } from "react-bootstrap"
 
 
 
@@ -35,26 +36,30 @@ export const BossDetail = (props) => {
         <main className="BossContainer">
             <div className="bossDiv">
 
+                <img className="boss__image" src={boss.photo} />
                 <h1 className="boss__name">{boss.name}</h1>
-
-                <div><img class="boss__image" src={boss.photo} /></div>
-                <div className="boss__summary">{boss.summary}</div>
-                <div className="boss__dungeon">Dungeon: {boss.dungeon?.name}</div>
-                <div className="boss__status">Status: {boss.status}</div>
-
-
-
-                <button onClick={() => deleteBoss(boss.id).then(() => history.push("/bosses"))} >Delete Boss</button>
-                <button onClick={() => {
-                    history.push(`/bosses/edit/${boss.id}`)
-                }}>Edit</button>
-
-
-                <CommentForm bossId={boss.id} />
-                <CommentList bossId={boss.id} />
-
-
             </div>
+            <div className="boss__details">
+                <div className="boss__dungeon"><span className='detailHeader'>Dungeon:</span> {boss.dungeon?.name}</div>
+                <div className="boss__status"><span className='detailHeader'>Status:</span> {boss.status}</div>
+            </div>
+
+            <div className="boss__Bottom">
+                <h3>Summary</h3>
+                <div className="boss__summary">{boss.summary}</div>
+                <div className="buttons">
+                    <Button className="d-block ml-auto my-2" type="button" onClick={() => deleteBoss(boss.id).then(() => history.push("/bosses"))} >Delete Boss</Button>
+                    <Button className="d-block ml-auto my-2" type="button" onClick={() => {
+                        history.push(`/bosses/edit/${boss.id}`)
+                    }}>Edit</Button>
+                </div>
+            </div>
+
+
+            <CommentForm bossId={boss.id} />
+            <CommentList bossId={boss.id} />
+
+
         </main>
     )
 }

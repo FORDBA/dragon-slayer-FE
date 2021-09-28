@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react"
 import { Button, Form } from "react-bootstrap"
 import { useHistory, useParams } from "react-router"
 import { CommentContext } from "./BossCommentProvider"
+import "../Bosses/Bosses.css"
 
 // export const NoteForm = () => {
 export const CommentForm = ({ bossId }) => {
@@ -69,10 +70,10 @@ export const CommentForm = ({ bossId }) => {
     }
 
     return (
-        <Form>
+        <Form className="commentForm">
 
 
-            <Form.Control as="textarea" id="comment" onChange={handleTextareaChange} defaultValue={comment.comment} name='content' placeholder="Enter Comment Here..." />
+            <Form.Control as="textarea" id="comment" onChange={handleTextareaChange} value={comment.comment} name='content' placeholder="Enter Comment Here..." />
             <Button className="d-block ml-auto my-2" type="submit" onClick={handleSubmitCommentClick}>{!commentId ? "Comment" : "Update"}</Button>
         </Form>
     )

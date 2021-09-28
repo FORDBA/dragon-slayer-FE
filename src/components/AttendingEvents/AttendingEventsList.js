@@ -6,7 +6,6 @@ import "./attendingEvents.css"
 
 export const AttendingEventsList = ({ eventId }) => {
     const { attendingEvents, getAttendingEvents } = useContext(AttendingEventContext)
-    const history = useHistory()
     const [attendingUsers, setAttendingUsers] = useState([])
     const [tentativeUsers, setTentativeUsers] = useState([])
     const [notAttendingUsers, setNotAttendingUsers] = useState([])
@@ -15,7 +14,7 @@ export const AttendingEventsList = ({ eventId }) => {
     useEffect(() => {
         getAttendingEvents(eventId)
 
-    }, [])
+    }, [eventId])
 
     useEffect(() => {
 
@@ -38,12 +37,12 @@ export const AttendingEventsList = ({ eventId }) => {
 
     return (
         <div>
-            <h1>RSVPs</h1>
+
 
 
 
             <article className="events__container">
-                <h1> Attending: </h1>
+                <h3> Attending: </h3>
                 <div className="events" >
                     {
                         attendingUsers.map(u => {
@@ -56,7 +55,7 @@ export const AttendingEventsList = ({ eventId }) => {
                 </div>
             </article>
             <article className="events__container">
-                <h1> Tentative: </h1>
+                <h3> Tentative: </h3>
                 <div className="events" >
                     {
                         tentativeUsers.map(u => {
@@ -69,7 +68,7 @@ export const AttendingEventsList = ({ eventId }) => {
                 </div>
             </article>
             <article className="events__container">
-                <h1> Not Attending: </h1>
+                <h3> Not Attending: </h3>
                 <div className="events" >
                     {
                         notAttendingUsers.map(u => {
