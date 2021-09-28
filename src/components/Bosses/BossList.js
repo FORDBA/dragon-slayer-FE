@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react"
 import { BossContext } from "./BossProvider"
-import { Link, useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom"
+import { Card } from "react-bootstrap"
 import "./Bosses.css"
 import { DungeonContext } from "../Dungeons/DungeonProvider"
 
@@ -8,12 +9,12 @@ import { DungeonContext } from "../Dungeons/DungeonProvider"
 export const BossList = () => {
     const { bosses, getBosses } = useContext(BossContext)
     const { dungeons, getDungeons } = useContext(DungeonContext)
-
     const [filteredBosses, setFiltered] = useState([])
     const [selectedDungeon, selectDungeon] = useState(0)
     const history = useHistory()
 
     useEffect(() => {
+
         getDungeons()
         getBosses()
 
@@ -59,12 +60,15 @@ export const BossList = () => {
                 <div className="bosses" >
                     {
                         filteredBosses.map(boss => {
-                            return <section className="boss" key={boss.id}>
-                                <Link to={`/bosses/${boss.id}`}>
-                                    <h3>{boss.name}</h3>
-
-                                </Link>
-                            </section>
+                            return <Card style={{ width: '18rem' }} className="boss" key={boss.id}>
+                                <Card.Title>
+                                    {boss.name}
+                                </Card.Title>
+                                <Card.Subtitle className="mb-2 text-muted">{boss.dungeon.name}</Card.Subtitle>
+                                <Card.Link href={`/bosses/${boss.id}`}>
+                                    View Details
+                                </Card.Link>
+                            </Card>
                         })
                     }
                 </div>

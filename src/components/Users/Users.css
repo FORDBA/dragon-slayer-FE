@@ -8,9 +8,40 @@
     padding-left: 10px
 }
 
+.card{
+    margin: 1em;
+}
 .memberDiv {
     padding: 1em;
 }
 .memberHeader{
    text-align: center;
+}
+
+.ProfileContainer__top{
+    align-content: center;
+}
+.ProfileContainer__bottom{
+    align-content: center;
+    padding: 5em;
+}
+.profile__image{
+    border-radius: 150px;
+    height:300px;
+    width: 300px;
+   
+  }
+.profile__right {
+    align-content: start;
+    padding-left: 5em;
+}
+
+  
+.profile__left {
+    padding: 1em;
+    text-align: center;
+}
+
+.detailHeader {
+    font-weight: bold;
 }

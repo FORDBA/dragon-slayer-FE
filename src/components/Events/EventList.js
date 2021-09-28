@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { EventContext } from "./EventProvider"
-import { Link } from "react-router-dom"
+import { Card } from "react-bootstrap"
+import { Button } from "react-bootstrap"
 import { useHistory } from "react-router"
 import "./Events.css"
 
@@ -40,26 +41,29 @@ export const EventList = (props) => {
 
 
             <article className="events__container">
-                <button onClick={() => history.push("/events/create")}>
+                <Button className="d-block ml-auto my-2" type="button" onClick={() => history.push("/events/create")}>
                     Add Event
-                </button>
+                </Button>
                 <div className="events" >
                     {
                         upcomingEvents.map(event => {
 
-                            return <section className="event" key={event.id}>
-                                <Link to={`/events/${event.id}`}>
-                                    <h3>{event.name}</h3>
+                            return <Card style={{ width: '18rem' }} key={event.id}>
+                                <Card.Title>
+                                    {event.name}
+                                </Card.Title>
+                                <Card.Subtitle className="mb-2 text-muted">{getReadableDate(event.date)}</Card.Subtitle>
+                                <Card.Subtitle className="mb-2 text-muted">Created By: {event.user.name}</Card.Subtitle>
 
-                                </Link>
-                                <div className="event__date">{getReadableDate(event.date)}</div>
-                                <div className="event__creator">Created By: {event.user.name}</div>
+                                <Card.Link href={`/events/${event.id}`}>
+                                    See RSVP's
+
+                                </Card.Link>
 
 
 
 
-
-                            </section>
+                            </Card>
                         })
                     }
                 </div>
@@ -69,19 +73,22 @@ export const EventList = (props) => {
                 {
                     pastEvents.map(event => {
 
-                        return <section className="event" key={event.id}>
-                            <Link to={`/events/${event.id}`}>
-                                <h3>{event.name}</h3>
+                        return <Card style={{ width: '18rem' }} key={event.id}>
+                            <Card.Title>
+                                {event.name}
+                            </Card.Title>
+                            <Card.Subtitle className="mb-2 text-muted">{getReadableDate(event.date)}</Card.Subtitle>
+                            <Card.Subtitle className="mb-2 text-muted">Created By: {event.user.name}</Card.Subtitle>
 
-                            </Link>
-                            <div className="event__date">{getReadableDate(event.date)}</div>
-                            <div className="event__creator">Created By: {event.user.name}</div>
+                            <Card.Link to={`/events/${event.id}`}>
+                                See RSVP's
+
+                            </Card.Link>
 
 
 
 
-
-                        </section>
+                        </Card>
                     })
                 }
             </div>

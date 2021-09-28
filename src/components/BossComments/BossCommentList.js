@@ -1,9 +1,10 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useContext } from "react";
 import { ListGroup, Row, Button } from "react-bootstrap";
 import { CommentContext } from "./BossCommentProvider";
 import { BsGearFill } from "react-icons/bs";
 import { MdDelete } from "react-icons/md"
 import { useHistory } from "react-router";
+import "../Bosses/Bosses.css"
 
 
 export const CommentList = ({ bossId }) => {
@@ -17,7 +18,7 @@ export const CommentList = ({ bossId }) => {
 
 
     return (
-        <div>
+        <div className="commentContainer">
             <div
                 className="noteList"
                 style={{ maxHeight: "250px", overflowY: "scroll" }}
@@ -30,20 +31,20 @@ export const CommentList = ({ bossId }) => {
                         return (
 
                             <ListGroup.Item key={c.id}>
+                                <h3>{c.comment}</h3>
+
+                                <h5>{c.user.name}</h5>
                                 <Row className="justify-content-between">
                                     <div className="d-flex">
                                         {isOwnNote &&
-                                            <Button className="d-block ml-auto my-2" type="submit" onClick={() => deleteComment(c.id)}><MdDelete style={{ fontSize: '36px' }} /></Button>
+                                            <Button className="d-block ml-auto my-2" type="submit" onClick={() => deleteComment(c)}><MdDelete style={{ fontSize: '20px' }} /></Button>
                                         }
 
                                         {isOwnNote &&
-                                            <Button className="d-block ml-auto my-2" type="submit" onClick={() => history.push(`/bossComments/edit/${c.id}`)}><BsGearFill style={{ fontSize: "36px" }} /></Button>
+                                            <Button className="d-block ml-auto my-2" type="submit" onClick={() => history.push(`/bossComments/edit/${c.id}`)}><BsGearFill style={{ fontSize: "20px" }} /></Button>
                                         }
                                     </div>
                                 </Row>
-                                <h3>{c.comment}</h3>
-
-                                <h4>{c.user.name}</h4>
                             </ListGroup.Item>
 
                         );

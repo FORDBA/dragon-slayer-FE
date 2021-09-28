@@ -1,7 +1,8 @@
 import React, { useContext, useState, useEffect } from "react"
-import { Button, Form } from "react-bootstrap"
-import { useHistory, useParams } from "react-router"
+import { Button } from "react-bootstrap"
+import { useParams } from "react-router"
 import { AttendingEventContext } from "./AttendingEventsProvider"
+import "./attendingEvents.css"
 
 
 export const AttendingForm = ({ eventId }) => {
@@ -67,16 +68,19 @@ export const AttendingForm = ({ eventId }) => {
 
     return (
         <>
-            <label htmlFor="status">Select Status: </label>
-            <select value={attending.statusId} name="status" id="statusId" onChange={handleInputChange} className="form-control" required >
-                <option value="0">Select a Status</option>
-                {statuses.map(e => (
-                    <option key={e.id} value={e.id}>
-                        {e.status}
-                    </option>
-                ))}
-            </select>
-            <Button className="d-block ml-auto my-2" type="button" onClick={handleSubmitClick}>RSVP</Button>
+            <div className="attendForm">
+
+                <label htmlFor="status">Are You Attending? </label>
+                <select value={attending.statusId} name="status" id="statusId" onChange={handleInputChange} className="form-control" required >
+                    <option value="0">Select Status</option>
+                    {statuses.map(e => (
+                        <option key={e.id} value={e.id}>
+                            {e.status}
+                        </option>
+                    ))}
+                </select>
+                <Button className="d-block ml-auto my-2" type="button" onClick={handleSubmitClick}>RSVP</Button>
+            </div>
         </>
     )
 }

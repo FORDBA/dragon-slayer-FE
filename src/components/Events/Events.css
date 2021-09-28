@@ -25,3 +25,9 @@
     padding: 5px;
     
   }
+  .buttons {
+    display:flex
+  }
+  .d-block {
+    margin: 5px;
+  }
