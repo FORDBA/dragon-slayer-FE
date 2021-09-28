@@ -51,3 +51,11 @@
   .detailHeader {
     font-weight: bold;
 }
+.bossHeader {
+  padding-left: 2em;
+  padding-right: 2em;
+}
+.bosses__container {
+  padding-left: 1em;
+  padding-right: 1em;
+}

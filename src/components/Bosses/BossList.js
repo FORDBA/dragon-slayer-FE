@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom"
 import { Card } from "react-bootstrap"
 import "./Bosses.css"
 import { DungeonContext } from "../Dungeons/DungeonProvider"
+import { Button } from "react-bootstrap"
 
 
 export const BossList = () => {
@@ -40,23 +41,27 @@ export const BossList = () => {
 
     return (
         <div>
-            <h1>Bosses</h1>
+            <div className="bossHeader">
 
-            <label htmlFor="race">Filter By Dungeon </label>
-            <select defaultValue="" name="race" id="race" onChange={handleInputChange} className="form-control" required >
-                <option value="0">Select a Dungeon</option>
-                {dungeons.map(e => (
-                    <option key={e.id} value={e.id}>
-                        {e.name}
-                    </option>
-                ))}
-            </select>
+                <h1>Bosses</h1>
 
+                <label htmlFor="race">Filter By Dungeon </label>
+                <select defaultValue="" name="race" id="race" onChange={handleInputChange} className="form-control" required >
+                    <option value="0">Select a Dungeon</option>
+                    {dungeons.map(e => (
+                        <option key={e.id} value={e.id}>
+                            {e.name}
+                        </option>
+                    ))}
+                </select>
+                <Button className="d-block ml-auto my-2" type="button" onClick={() => history.push("/bosses/create")}>
+                    Add Boss
+                </Button>
+
+            </div>
 
             <article className="bosses__container">
-                <button onClick={() => history.push("/bosses/create")}>
-                    Add Boss
-                </button>
+
                 <div className="bosses" >
                     {
                         filteredBosses.map(boss => {

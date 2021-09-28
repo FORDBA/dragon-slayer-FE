@@ -1,4 +1,4 @@
-import React, { useRef, useContext, useState, useEffect } from "react"
+import React, { useContext, useState, useEffect } from "react"
 import { BossContext } from "./BossProvider"
 import { DungeonContext } from "../Dungeons/DungeonProvider"
 import "./Bosses.css"
@@ -14,8 +14,6 @@ export const BossForm = (props) => {
     const history = useHistory()
 
     const [boss, setBoss] = useState({})
-
-    const bossSummary = useRef()
 
 
     const { bossId } = useParams()
@@ -125,7 +123,7 @@ export const BossForm = (props) => {
                         loading ? (
                             <div>Loading...</div>
                         ) : (
-                            <img src={image} />
+                            <img src={image} alt="" />
                         )
                     }
                 </div>

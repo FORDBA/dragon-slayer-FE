@@ -36,7 +36,7 @@ export const BossDetail = (props) => {
         <main className="BossContainer">
             <div className="bossDiv">
 
-                <img className="boss__image" src={boss.photo} />
+                <img className="boss__image" src={boss.photo} alt="" />
                 <h1 className="boss__name">{boss.name}</h1>
             </div>
             <div className="boss__details">

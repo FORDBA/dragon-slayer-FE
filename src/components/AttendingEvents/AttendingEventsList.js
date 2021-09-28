@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react"
-import { useHistory } from "react-router"
 import { AttendingEventContext } from "./AttendingEventsProvider"
 import Badge from 'react-bootstrap/Badge'
 import "./attendingEvents.css"
