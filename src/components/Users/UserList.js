@@ -10,6 +10,10 @@ export const UserList = props => {
     useEffect(() => {
         getUsers()
     }, [])
+
+
+
+
     useEffect(() => {
         if (searchTerms !== "") {
 
