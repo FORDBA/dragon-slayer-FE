@@ -48,7 +48,7 @@ export const AttendingEventsList = ({ eventId }) => {
                         attendingUsers.map(u => {
 
                             return (
-                                <Badge pill variant="primary" className="mx-1">{u.user.name}</Badge>
+                                <Badge pill variant="primary" className="mx-1" key={u.id}>{u.user.name}</Badge>
                             );
                         })
                     }
@@ -61,7 +61,7 @@ export const AttendingEventsList = ({ eventId }) => {
                         tentativeUsers.map(u => {
 
                             return (
-                                <Badge pill variant="primary" className="mx-1">{u.user.name}</Badge>
+                                <Badge pill variant="primary" className="mx-1" key={u.id}>{u.user.name}</Badge>
                             );
                         })
                     }
@@ -74,7 +74,7 @@ export const AttendingEventsList = ({ eventId }) => {
                         notAttendingUsers.map(u => {
 
                             return (
-                                <Badge pill variant="primary" className="mx-1">{u.user.name}</Badge>
+                                <Badge pill variant="primary" className="mx-1" key={u.id}>{u.user.name}</Badge>
                             );
                         })
                     }
