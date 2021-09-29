@@ -46,7 +46,7 @@ export const BossList = () => {
                 <h1>Bosses</h1>
 
                 <label htmlFor="race">Filter By Dungeon </label>
-                <select defaultValue="" name="race" id="race" onChange={handleInputChange} className="form-control" required >
+                <select name="race" id="race" onChange={handleInputChange} className="form-control" required >
                     <option value="0">Select a Dungeon</option>
                     {dungeons.map(e => (
                         <option key={e.id} value={e.id}>

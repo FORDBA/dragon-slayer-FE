@@ -67,6 +67,7 @@ export const BossForm = (props) => {
 
 
     const constructNewBoss = () => {
+
         const dungeonId = parseInt(boss.dungeonId)
 
         if (dungeonId === 0) {
@@ -167,7 +168,7 @@ export const BossForm = (props) => {
                 </div>
             </fieldset>
 
-            <button type="submit"
+            <button type="button"
                 onClick={evt => {
                     evt.preventDefault()
                     constructNewBoss()

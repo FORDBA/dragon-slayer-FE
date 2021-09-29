@@ -182,7 +182,7 @@ export const Register = () => {
                     }
                 </div>
                 <label htmlFor="rank">Guild Rank: </label>
-                <select defaultValue="" name="rank" id="rankId" value={registerUser.rankId} className="form-control" onChange={handleInputChange} required>
+                <select name="rank" id="rankId" value={registerUser.rankId} className="form-control" onChange={handleInputChange} required>
                     <option value="0">Select a Rank</option>
                     {ranks.map(e => (
                         <option key={e.id} value={e.id}>
@@ -191,7 +191,7 @@ export const Register = () => {
                     ))}
                 </select>
                 <label htmlFor="role">Role: </label>
-                <select defaultValue="" name="role" id="roleId" className="form-control" value={registerUser.roleId} onChange={handleInputChange} required>
+                <select name="role" id="roleId" className="form-control" value={registerUser.roleId} onChange={handleInputChange} required>
                     <option value="0">Select a Role</option>
                     {roles.map(e => (
                         <option key={e.id} value={e.id}>
@@ -200,7 +200,7 @@ export const Register = () => {
                     ))}
                 </select>
                 <label htmlFor="race">Race: </label>
-                <select defaultValue="" name="race" id="raceId" onChange={handleInputChange} value={registerUser.raceId} className="form-control" required >
+                <select name="race" id="raceId" onChange={handleInputChange} value={registerUser.raceId} className="form-control" required >
                     <option value="0">Select a Rank</option>
                     {races.map(e => (
                         <option key={e.id} value={e.id}>
@@ -209,7 +209,7 @@ export const Register = () => {
                     ))}
                 </select>
                 <label htmlFor="class">Class: </label>
-                <select defaultValue="" name="class" id="classId" value={registerUser.classId} onChange={handleInputChange} className="form-control" required >
+                <select name="class" id="classId" value={registerUser.classId} onChange={handleInputChange} className="form-control" required >
                     <option value="0">Select a Class</option>
                     {classes.map(e => (
                         <option key={e.id} value={e.id}>
@@ -218,7 +218,7 @@ export const Register = () => {
                     ))}
                 </select>
                 <label htmlFor="prof1">1st Profession: </label>
-                <select defaultValue="" name="prof1" id="profession1Id" value={registerUser.profession1Id} onChange={handleInputChange} className="form-control" required >
+                <select name="prof1" id="profession1Id" value={registerUser.profession1Id} onChange={handleInputChange} className="form-control" required >
                     <option value="0">Select a Profession</option>
                     {professions.map(e => (
                         <option key={e.id} value={e.id}>
@@ -227,7 +227,7 @@ export const Register = () => {
                     ))}
                 </select>
                 <label htmlFor="prof2">2nd Profession: </label>
-                <select defaultValue="" name="prof2" id="profession2Id" value={registerUser.profession2Id} onChange={handleInputChange} className="form-control" required >
+                <select name="prof2" id="profession2Id" value={registerUser.profession2Id} onChange={handleInputChange} className="form-control" required >
                     <option value="0">Select a Profession</option>
                     {professions.map(e => (
                         <option key={e.id} value={e.id}>

@@ -43,7 +43,7 @@ export const Login = () => {
                 <div>User does not exist</div>
                 <button className="button--close" onClick={e => setExistDialog(false)}>Close</button>
             </dialog>
-            <section>
+            <section className="loginSection">
                 <form className="form--login" onSubmit={handleLogin}>
                     <div className="logo--login">
                         <img src={logo} alt="logo" />

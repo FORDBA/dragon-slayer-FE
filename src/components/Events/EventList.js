@@ -80,7 +80,7 @@ export const EventList = (props) => {
                             <Card.Subtitle className="mb-2 text-muted">{getReadableDate(event.date)}</Card.Subtitle>
                             <Card.Subtitle className="mb-2 text-muted">Created By: {event.user.name}</Card.Subtitle>
 
-                            <Card.Link to={`/events/${event.id}`}>
+                            <Card.Link href={`/events/${event.id}`}>
                                 See RSVP's
 
                             </Card.Link>

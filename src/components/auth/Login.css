@@ -78,4 +78,10 @@ fieldset {
     height : 300px;
     padding: 1em;
 }
-
+.container--login {
+    justify-content: center;
+}
+.logo--login {
+    display: flex;
+    justify-content: center;
+}
