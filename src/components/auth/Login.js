@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Link, useHistory } from "react-router-dom"
+import { Button } from "react-bootstrap"
 import logo from "../nav/Dragon Slayer Logo.png"
 import "./Login.css"
 
@@ -41,7 +42,7 @@ export const Login = () => {
         <main className="container--login">
             <dialog className="dialog dialog--auth" open={existDialog}>
                 <div>User does not exist</div>
-                <button className="button--close" onClick={e => setExistDialog(false)}>Close</button>
+                <Button className="d-block ml-auto my-2" type="button" onClick={e => setExistDialog(false)}>Close</Button>
             </dialog>
             <section className="loginSection">
                 <form className="form--login" onSubmit={handleLogin}>
@@ -58,9 +59,9 @@ export const Login = () => {
                         autoComplete="off"
                         value={loginUser.email}
                         onChange={handleInputChange} />
-                    <button className="submitButton" type="submit">
+                    <Button className="d-block ml-auto my-2" type="submit">
                         Sign in
-                    </button>
+                    </Button>
                 </form>
             </section>
             <section className="link--register">

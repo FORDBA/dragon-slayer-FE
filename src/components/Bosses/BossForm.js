@@ -3,6 +3,7 @@ import { BossContext } from "./BossProvider"
 import { DungeonContext } from "../Dungeons/DungeonProvider"
 import "./Bosses.css"
 import { useHistory, useParams } from "react-router"
+import { Button } from "react-bootstrap"
 
 
 export const BossForm = (props) => {
@@ -168,14 +169,14 @@ export const BossForm = (props) => {
                 </div>
             </fieldset>
 
-            <button type="button"
+            <Button className="d-block ml-auto my-2" type="button"
                 onClick={evt => {
                     evt.preventDefault()
                     constructNewBoss()
                 }}
                 className="btn btn-primary">
                 {bossId ? "Save Updates" : "Save"}
-            </button>
+            </Button>
         </form>
     )
 }

@@ -9,7 +9,8 @@ export const UserList = props => {
 
     useEffect(() => {
         getUsers()
-    }, [])
+        console.log("This is Running!")
+    }, [getUsers])
 
 
 

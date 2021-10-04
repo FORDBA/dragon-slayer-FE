@@ -3,6 +3,7 @@ import { EventContext } from "./EventProvider"
 import { DungeonContext } from "../Dungeons/DungeonProvider"
 import "./Events.css"
 import { useHistory, useParams } from "react-router"
+import { Button } from "react-bootstrap"
 
 
 export const EventForm = (props) => {
@@ -113,14 +114,14 @@ export const EventForm = (props) => {
 
 
 
-            <button type="submit"
+            <Button className="d-block ml-auto my-2" type="button"
                 onClick={evt => {
                     evt.preventDefault()
                     constructNewEvent()
                 }}
                 className="btn btn-primary">
                 {eventId ? "Save Updates" : "Save"}
-            </button>
+            </Button>
         </form>
     )
 }
